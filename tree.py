@@ -129,7 +129,7 @@ class TestFindMethod(unittest.TestCase):
 
         found_node = tree.find(6)
         self.assertIsNotNone(found_node)
-        self.assertEqual(found_node.data, 7)
+        self.assertEqual(found_node.data, 1351)
 
     def test_find_non_existing_value(self):
         tree = Tree()
