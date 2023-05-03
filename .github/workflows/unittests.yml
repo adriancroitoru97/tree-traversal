@@ -21,4 +21,4 @@ jobs:
          cat << EOF > message.json
          {"@type":"MessageCard","@context":"https://schema.org/extensions","summary":"Pipeline failed!","themeColor":"ff0000","title":"$GITHUB_REPOSITORY pipeline failed 💢!","sections":[{"facts":[{"name":"Repository:","value":"$GITHUB_REPOSITORY"},{"name":"Branch:","value":"$GITHUB_REF_NAME"},{"name":"Commit:","value":"$GITHUB_SHA"}]}],"potentialAction":[{"@type":"OpenUri","name":"View on GitHub","targets":[{"os":"default","uri":"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"}]}]}
          EOF
-         curl -X POST https://discord.com/api/webhooks/1103321862412435526/Kcn4vrZBskvWFEjvx4TU46HnV7CkJypQ3otcaAjH5vkxu7VKODTe9mUZ26SXua-ZVRkR --header 'Content-Type: application/json' -d @message.json
+         curl -X POST https://discord.com/api/webhooks/1103321862412435526/Kcn4vrZBskvWFEjvx4TU46HnV7CkJypQ3otcaAjH5vkxu7VKODTe9mUZ26SXua-ZVRkR --header 'Content-Type: application/json' --data "{\"content\": \"S-a dus drq tot\"}"
