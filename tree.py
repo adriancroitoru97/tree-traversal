@@ -1,5 +1,5 @@
 from node import Node
-
+import unittest
 
 class Tree:
     """ Tree class for binary tree """
@@ -54,6 +54,15 @@ class Tree:
             return None
 
     def _find(self, data, node):
+        """ Method for find data in the tree
+
+        Args:
+            data (int): data to find
+            node (Node): node in the tree
+
+        Returns:
+            Node: node with data
+        """
         if data == node.data:
             return node
         elif (data < node.data and node.left is not None):
@@ -62,27 +71,78 @@ class Tree:
             return self._find(data, node.right)
 
     def deleteTree(self):
-        # TODO 1
+        """ Method to delete the entire tree """
         self.root = None
 
     def printTree(self):
-        # TODO 1
+        """ Method to print the entire tree """
         if self.root is not None:
             self._printInorderTree(self.root)
 
     def _printInorderTree(self, node):
-        # TODO 1
+        """ Method to print the tree in order
+
+        Args:
+            node (Node): node in the tree
+
+        Returns:
+            None
+        """
         if node is not None:
             self._printInorderTree(node.left)
             print(str(node.data) + ' ')
             self._printInorderTree(node.right)
 
     def _printPreorderTree(self, node):
-        # TODO 2
+        """ Method to print the tree in pre-order
+
+        Args:
+            node (Node): node in the tree
+
+        Returns:
+            None
+        """
         pass
 
     def _printPostorderTree(self, node):
-        # TODO 2
+        """ Method to print the tree in post-order
+
+        Args:
+            node (Node): node in the tree
+
+        Returns:
+            None
+        """
         pass
 
+class TestFindMethod(unittest.TestCase):
 
+    def test_find_existing_value(self):
+        tree = Tree()
+        tree.add(5)
+        tree.add(3)
+        tree.add(7)
+        tree.add(1)
+        tree.add(4)
+        tree.add(6)
+        tree.add(8)
+
+        found_node = tree.find(6)
+        self.assertIsNotNone(found_node)
+        self.assertEqual(found_node.data, 6)
+
+    def test_find_non_existing_value(self):
+        tree = Tree()
+        tree.add(5)
+        tree.add(3)
+        tree.add(7)
+        tree.add(1)
+        tree.add(4)
+        tree.add(6)
+        tree.add(8)
+
+        found_node = tree.find(10)
+        self.assertIsNone(found_node)
+
+if __name__ == "__main__":
+    unittest.main()
