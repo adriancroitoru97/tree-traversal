@@ -111,7 +111,7 @@ class Tree:
             node (Node): node in the tree
 
         Returns:
-            None
+            Noneeee
         """
         pass
 
